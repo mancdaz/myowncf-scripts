@@ -6,11 +6,16 @@ them out - works for containers with >10000 objects
 """
 
 import cloudfiles
+import ConfigParser
 
-USERNAME = "darrenbirkett"
-AUTH_URL = "https://lon.auth.api.rackspacecloud.com/v1.0"
-API_KEY = "35fcdf2c7ccedff0e257a203d9aaabe1"
-#CONTAINER = "testcontainer"
+# get our config from the config file
+config = ConfigParser.ConfigParser()
+config.read("./cf.ini")
+
+USERNAME = config.get("auth", "username")
+AUTH_URL = config.get("auth", "url")
+API_KEY = config.get("auth", "key")
+
 CONTAINER = "test.birkett"
 
 # create the connection object
