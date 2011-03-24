@@ -10,6 +10,5 @@ API_KEY = "35fcdf2c7ccedff0e257a203d9aaabe1"
 SERVER_ID = 10010692
 
 cnx = cloudservers.CloudServers(USERNAME, API_KEY, auth_url=AUTH_URL)
-
-
+cnx.servers.list()
 
