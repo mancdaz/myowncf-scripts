@@ -34,9 +34,9 @@ CONTAINER = raw_input("enter the container name to delete: ")
 try:
     conn.delete_container(CONTAINER)
 except(cloudfiles.errors.NoSuchContainer):
-    print "Sorry - there is no container called %s" % CONTAINER
+    print "Sorry - there is no container called \'%s\'" % CONTAINER
 except(cloudfiles.errors.ContainerNotEmpty):
     print "Sorry - container \'%s\' is not empty" % CONTAINER
 else:
-    print "Container \'%s\' deleted successfully" % CONTAINER
+    print "Container \'%s\' deleted successfully\n" % CONTAINER
     getandprint_all_containers()
