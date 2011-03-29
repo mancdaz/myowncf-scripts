@@ -7,6 +7,8 @@ them out - works for containers with >10000 objects
 
 import cloudfiles
 import ConfigParser
+from sys import argv
+
 
 # get our config from the config file
 config = ConfigParser.ConfigParser()
@@ -16,7 +18,12 @@ USERNAME = config.get("auth", "username")
 AUTH_URL = config.get("auth", "url")
 API_KEY = config.get("auth", "key")
 
-CONTAINER = "test.birkett"
+try:
+    CONTAINER = argv[1]
+    print "Using container: \'%s\'" % CONTAINER
+except:
+    CONTAINER = "test.birkett"
+    print "Using default container: \'%s\'" % CONTAINER
 
 # create the connection object
 conn = cloudfiles.get_connection(USERNAME,API_KEY,authurl = AUTH_URL)
