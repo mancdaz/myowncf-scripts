@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cloudservers
+import novaclient 
 import ConfigParser
 
 # get our config from the config file
@@ -13,6 +13,7 @@ API_KEY = config.get("auth", "key")
 # Server ID to resize
 #SERVER_ID = 10010692
 
-cnx = cloudservers.CloudServers(USERNAME, API_KEY, auth_url=AUTH_URL)
+cnx = novaclient.OpenStack(USERNAME, API_KEY, AUTH_URL)
+print cnx
 cnx.servers.list()
 cnx.flavors.list()
